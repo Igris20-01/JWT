@@ -1,6 +1,5 @@
 package com.alibou.security.config;
 
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +26,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/v1/auth/**")
                 .permitAll()
+                .requestMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -38,4 +38,12 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+    public static final String[] AUTH_WHITELIST = {
+         "/api/v1/auth/**","/v2/api-docs","/v3/api-docs","/v3/api-docs/**",
+            "/swagger-ui/**", "/swagger-resources", "/swagger-resources/**",
+            "/configuration/ui","/configuration/security", "/webjars/**",
+            "/swagger-ui.html", "v3/api-docs/**",
+            "v3/api-docs.yaml"
+    };
 }

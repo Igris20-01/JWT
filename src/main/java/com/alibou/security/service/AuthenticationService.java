@@ -1,8 +1,8 @@
 package com.alibou.security.service;
 
-import com.alibou.security.controller.AuthenticationRequest;
-import com.alibou.security.controller.AuthenticationResponse;
-import com.alibou.security.controller.RegisterRequest;
+import com.alibou.security.dto.AuthenticationRequest;
+import com.alibou.security.dto.AuthenticationResponse;
+import com.alibou.security.dto.RegisterRequest;
 import com.alibou.security.entity.User;
 import com.alibou.security.enums.Role;
 import com.alibou.security.repository.UserRepository;
